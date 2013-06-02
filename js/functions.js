@@ -9,21 +9,21 @@ ResourcesEnum = {
 	ORE : 5,
 	WATER : 6
 }
-function resourceNumToString(int resourceNum){
+function resourceNumToString(resourceNum){
 	switch(resourceNum){
-		case 0:
+		case DESERT:
 			return "desert";
-		case 1:
+		case WOOD:
 			return "wood";
-		case 2:
+		case WOOL:
 			return "wool";
-		case 3:
+		case WHEAT:
 			return "wheat";
-		case 4:
+		case BRICK:
 			return "brick";
-		case 5:
+		case ORE:
 			return "ore";
-		case 6:
+		case WATER:
 		default:
 			return "water";
 	}
@@ -112,7 +112,5 @@ for ( var i = 0; i < boardobj.rows.length; i++ ) {
 					   + ((boardobj.rows[i][j].rank == "2" || boardobj.rows[i][j].rank == "12") ? "one-dot" : "");*/
 		eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '"><span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span></div>');
 	}
-	
 }
-
 });
