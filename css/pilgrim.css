@@ -22,7 +22,7 @@
     background-color: #6C6;
     position: relative;
 	float:left;
-	margin-left: 14px; margin-bottom: 14px; /*channel width*/
+	margin-left: 12px; margin-bottom: 12px; /*channel width*/
 }
 
 .hex:after {
@@ -62,7 +62,17 @@
     clear: left;
 }
 .hex-row.even {
-    margin-left: 60px; /*if you make the channels bigger then you need to adjust this*/
+    margin-left: 59px; /*if you make the channels bigger then you need to adjust this*/
 						/*it needs to be 53 + half of your hex's margin-left*/
 }
-*/
+
+
+.padding:before {
+	border-bottom-color:#ffffff;
+}
+.padding {
+	background-color:#ffffff;
+}
+.padding:after {
+	border-top-color:#ffffff;
+}
