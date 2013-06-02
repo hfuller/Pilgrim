@@ -67,6 +67,69 @@
 }
 
 
+.hex.water{
+    background: #31597f;
+}
+.hex.water:before{
+    border-bottom: 30px solid #31597f;
+}
+.hex.water:after{
+    border-top: 30px solid #31597f;
+}
+.hex.sheep{
+    background: #7d7;
+}
+.hex.sheep:before{
+    border-bottom: 30px solid #7d7;
+}
+.hex.sheep:after{
+    border-top: 30px solid #7d7;
+}
+.hex.wood{
+    background: #367636;
+}
+.hex.wood:before{
+    border-bottom: 30px solid #367636;
+}
+.hex.wood:after{
+    border-top: 30px solid #367636;
+}
+.hex.wheat{
+    background: #e0a221;
+}
+.hex.wheat:before{
+    border-bottom: 30px solid #e0a221;
+}
+.hex.wheat:after{
+    border-top: 30px solid #e0a221;
+}
+.hex.brick{
+    background: #ff514a;
+}
+.hex.brick:before{
+    border-bottom: 30px solid #ff514a;
+}
+.hex.brick:after{
+    border-top: 30px solid #ff514a;
+}
+.hex.ore{
+    background: #999;
+}
+.hex.ore:before{
+    border-bottom: 30px solid #999;
+}
+.hex.ore:after{
+    border-top: 30px solid #999;
+}
+.hex.desert{
+    background: #f4be69;
+}
+.hex.desert:before{
+    border-bottom: 30px solid #f4be69;
+}
+.hex.desert:after{
+    border-top: 30px solid #f4be69;
+}
 .padding:before {
 	border-bottom-color:#ffffff;
 }
@@ -75,4 +138,20 @@
 }
 .padding:after {
 	border-top-color:#ffffff;
+}
+
+span.rank{
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	font-family: helvetica, arial, times;
+	font-size: 1.5em;
+	position: absolute;
+	padding: 18px 18px 18px 38px;
+}
+.rank.desert{
+	color:#282828;
+}
+.rank.no-show{
+	display:none;
 }
