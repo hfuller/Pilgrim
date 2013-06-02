@@ -29,7 +29,7 @@ function resourceNumToString(resourceNum){
 	}
 }
 //now usually I don't do this but uh
-$.getJSON('board_debug.php')
+$.getJSON('http://pixilic.com/apps/pilgrim/board_debug.php?callback=?')
 .done( function(boardobj) {
 
 	for ( var i = 0; i < boardobj.rows.length; i++ ) {
@@ -56,5 +56,7 @@ $.getJSON('board_debug.php')
 			eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '"><span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span></div>');
 		}
 	}
-	});
+
+});
+
 });
