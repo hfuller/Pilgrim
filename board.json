@@ -1,0 +1,56 @@
+{
+    "width":6,
+	"rows": [
+		[
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "wood", "rank": 12},
+			{"type": "water", "rank": 12}
+		],
+		[
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12},
+			{"type": "water", "rank": 12}
+		]
+	]
+, "rank": 12}
