@@ -144,12 +144,13 @@ span.rank{
 	padding: 0;
 	margin: 0;
 	color: #fff;
-	font-family: helvetica, arial, times;
+	font-family: ms shell dlg, calibri, helvetica, arial, times;
 	font-size: 1.5em;
 	position: absolute;
 	top:29%;
 	width: 104px;
 	text-align: center;
+	text-shadow: 1px 1px 1px #555;
 }
 .rank.desert{
 	color:#282828;
