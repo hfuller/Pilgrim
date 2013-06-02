@@ -1,5 +1,33 @@
 $(document).ready(function() { 
 
+ResourcesEnum = {
+	DESERT : 0,
+	WOOD : 1,
+	WOOL : 2,
+	WHEAT : 3,
+	BRICK : 4,
+	ORE : 5,
+	WATER : 6
+}
+function resourceNumToString(int resourceNum){
+	switch(resourceNum){
+		case 0:
+			return "desert";
+		case 1:
+			return "wood";
+		case 2:
+			return "wool";
+		case 3:
+			return "wheat";
+		case 4:
+			return "brick";
+		case 5:
+			return "ore";
+		case 6:
+		default:
+			return "water";
+	}
+}
 //now usually I don't do this but uh
 var boardjson = '{ '
 							+ '"width":6, '
