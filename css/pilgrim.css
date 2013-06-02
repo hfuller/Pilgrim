@@ -147,7 +147,9 @@ span.rank{
 	font-family: helvetica, arial, times;
 	font-size: 1.5em;
 	position: absolute;
-	padding: 18px 18px 18px 38px;
+	top:29%;
+	width: 104px;
+	text-align: center;
 }
 .rank.desert{
 	color:#282828;
