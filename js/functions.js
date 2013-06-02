@@ -29,7 +29,6 @@ $(document).ready(function() {
 		}
 	}
 	
-<<<<<<< HEAD
 	oRow = boardobj.rows[i];
 	for ( var j = 0; j < (boardobj.width-oRow.length)/2; j++ ) {
 		eRow.append('<div class="hex padding"></div>');
@@ -48,7 +47,6 @@ $(document).ready(function() {
 
 
 
-=======
 	var boardobj = $.getJSON('board_debug.php')
 	.done( function(boardobj) {
 		
@@ -77,5 +75,4 @@ $(document).ready(function() {
 			}
 		}
 	});
->>>>>>> d892e69199e7f1107c76cb7c84f93f737324096f
 });
