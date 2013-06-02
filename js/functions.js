@@ -103,8 +103,8 @@ for ( var i = 0; i < boardobj.rows.length; i++ ) {
 		eRow.append('<div class="hex padding"></div>');
 	}
 	for ( var j = 0; j < oRow.length; j++ ) {
-		var hexClasses = "hex " + boardobj.rows[i][j].type;
-		var rankClasses = "rank " + ((boardobj.rows[i][j].type == "desert" || boardobj.rows[i][j].type == "water") ? "no-show " : "");
+		var hexClasses = "hex " + resourceNumToString(boardobj.rows[i][j].type);
+		var rankClasses = "rank " + ((resourceNumToString(boardobj.rows[i][j].type) == "desert" || resourceNumToString(boardobj.rows[i][j].type) == "water") ? "no-show " : "");
 		/*var rankDotClasses = "dots " + ((boardobj.rows[i][j].rank == "6" || boardobj.rows[i][j].rank == "8") ? "five-dot" : "")
 					   + ((boardobj.rows[i][j].rank == "5" || boardobj.rows[i][j].rank == "9") ? "four-dot" : "")
 					   + ((boardobj.rows[i][j].rank == "4" || boardobj.rows[i][j].rank == "10") ? "three-dot" : "")
@@ -113,4 +113,7 @@ for ( var i = 0; i < boardobj.rows.length; i++ ) {
 		eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '"><span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span></div>');
 	}
 }
+
+
+
 });
