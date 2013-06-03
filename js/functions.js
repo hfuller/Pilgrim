@@ -48,14 +48,15 @@ $(document).ready(function() {
 		for ( var j = 0; j < oRow.length; j++ ) {
 		    var hexClasses = "hex " + resourceNumToString(boardobj.rows[i][j].type);
 		    var rankClasses = "rank " + ((resourceNumToString(boardobj.rows[i][j].type) == "desert" || resourceNumToString(boardobj.rows[i][j].type) == "water") ? "no-show " : "");
-			//add our hex
+		    /*var rankDotClasses = "dots " + ((boardobj.rows[i][j].rank == "6" || boardobj.rows[i][j].rank == "8") ? "five-dot" : "")
+		      + ((boardobj.rows[i][j].rank == "5" || boardobj.rows[i][j].rank == "9") ? "four-dot" : "")
+		      + ((boardobj.rows[i][j].rank == "4" || boardobj.rows[i][j].rank == "10") ? "three-dot" : "")
+		      + ((boardobj.rows[i][j].rank == "3" || boardobj.rows[i][j].rank == "11") ? "two-dot" : "")
+		      + ((boardobj.rows[i][j].rank == "2" || boardobj.rows[i][j].rank == "12") ? "one-dot" : "");*/
 		    eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '">'
-									//add the rank of the hex (e.g. the number the roll of the dice will relate to)
 									+ '<span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span>' 
-									//then, if we're not on the bottom row, we'll add intersections
 									+ ((i < boardobj.rows.length - 1) ? 
 											(
-												//if we're not on the right edge of the board, we'll add a bottom-right intersection (hence the "right" class)
 												(j < oRow.length - 1) ?
 													'<span class="intersect right ' + 
 														(i%2 == 0 ?
@@ -67,14 +68,19 @@ $(document).ready(function() {
 												: 
 												''
 											) 
-											//and either way, we'll add a bottom intersection.
-											+ '<span class="intersect bottom ' + 
-												(i%2 == 0 ?
-												'blue' 
-												: 
-												'red'
-												) 
+											+ ((i < 3) ?
+													(
+												'<span class="intersect bottom ' + 
+													(i%2 == 0 ?
+														'blue' 
+														: 
+														'red'
+													) 
+												)
 											+ '" data-a="' + i + '" data-b="' + j + '" data-c="0"></span>' : '') 
+													:
+													''
+													)
 							+ '</div>');
 
 		}
