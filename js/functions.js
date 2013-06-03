@@ -53,7 +53,6 @@ $(document).ready(function() {
 		      + ((boardobj.rows[i][j].rank == "4" || boardobj.rows[i][j].rank == "10") ? "three-dot" : "")
 		      + ((boardobj.rows[i][j].rank == "3" || boardobj.rows[i][j].rank == "11") ? "two-dot" : "")
 		      + ((boardobj.rows[i][j].rank == "2" || boardobj.rows[i][j].rank == "12") ? "one-dot" : "");*/
-<<<<<<< HEAD
 		    eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '">'
 									+ '<span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span>' 
 									+ ((i < boardobj.rows.length - 1) ? 
@@ -77,13 +76,7 @@ $(document).ready(function() {
 												) 
 											+ '" data-a="' + i + '" data-b="' + j + '" data-c="0"></span>' : '') 
 							+ '</div>');
-=======
-		    eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '"><span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span></div>');
-		    if(j < (oRow.length - 1) || i < (boardobj.rows.length - 1))
-			eRow.append('<span class="intersect right" data-a="' + i + '" data-b="' + j + '" data-c="1">');
-		    if(i < (boardobj.rows.length - 1))
-		    	eRow.append('<span class="intersect bottom" data-a="' + i + '" data-b="' + j + '" data-c="0">');
->>>>>>> 8da1b38eefe9e7d449b4b35ed6dd5157ce996521
+
 		}
 	    }
 	    
