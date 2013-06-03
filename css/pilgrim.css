@@ -1,0 +1,23 @@
+html {
+	font-family: ms shell dlg, calibri, helvetica, arial, times, sans-serif;
+	margin-top:0px; padding-top:0px;
+}
+.header {
+	text-align:center;
+	
+	background: url(../images/fancy.jpg);
+	background-repeat:no-repeat;
+	background-position:bottom;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	height:200px;
+}
+h1,body {
+	margin-top:0px;
+}
+h1 {
+	padding-top:16px;
+}
