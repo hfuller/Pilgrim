@@ -156,21 +156,21 @@ span.rank{
 
 .intersect{
     position:absolute;
-	width:18px;
-	height:18px;
-	-webkit-border-radius: 9px;
-	-moz-border-radius: 9px;
-	border-radius: 9px;
+	width:12px;
+	height:12px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
 	z-index:15;
 }
 
 .intersect.bottom{
-    top:89px;
-    left:42px;
+    top:91px;
+    left:46px;
 }
 .intersect.right{
-    top:57px;
-    left:101px;
+    top:60px;
+    left:104px;
 }
 
 .intersect.red{
