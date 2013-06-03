@@ -161,7 +161,7 @@ span.rank{
 	-webkit-border-radius: 9px;
 	-moz-border-radius: 9px;
 	border-radius: 9px;
-	/*consider messing with z-index to always make sure the dots are on top of the padding hexes*/
+	z-index:15;
 }
 
 .intersect.bottom{
