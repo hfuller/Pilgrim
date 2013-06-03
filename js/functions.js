@@ -70,11 +70,12 @@ $(document).ready(function() {
 							'" data-a="' + i + '" data-b="' + j + '" data-c="1"></span>');
 					}
 					
-					//and either way, we'll add a bottom intersection.
-					hex.append('<span class="intersect bottom ' + 
-						(i%2 == 0 ? 'blue' : 'red') +
-						'" data-a="' + i + '" data-b="' + j + '" data-c="0"></span>');
-						
+					//and we'll add a bottom intersection for the top four rows.
+					if(i < 3) {
+						hex.append('<span class="intersect bottom ' + 
+							(i%2 == 0 ? 'blue' : 'red') +
+							'" data-a="' + i + '" data-b="' + j + '" data-c="0"></span>');
+					}		
 				}
 
 			}
