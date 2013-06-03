@@ -157,3 +157,17 @@ span.rank{
 .rank.no-show{
 	display:none;
 }
+
+.intersect{
+    float:left;
+    position:relative;
+}
+
+.intersect.bottom{
+    top:125px;
+    left:-52px;
+}
+.intersect.right{
+    top:90px;
+    left:5px;
+}
