@@ -130,14 +130,10 @@
 .hex.desert:after{
     border-top: 30px solid #f4be69;
 }
-.padding:before {
-	border-bottom-color:#ffffff;
-}
-.padding {
-	background-color:#ffffff;
-}
-.padding:after {
-	border-top-color:#ffffff;
+
+.hex.padding {
+	/*background-color:#ffffff;*/
+	visibility:hidden;
 }
 
 span.rank{
