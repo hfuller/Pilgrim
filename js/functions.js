@@ -54,9 +54,10 @@ $(document).ready(function() {
 		      + ((boardobj.rows[i][j].rank == "3" || boardobj.rows[i][j].rank == "11") ? "two-dot" : "")
 		      + ((boardobj.rows[i][j].rank == "2" || boardobj.rows[i][j].rank == "12") ? "one-dot" : "");*/
 		    eRow.append('<div class="' + hexClasses+ '" data-x="' + i + '" data-y="' + j + '"><span class="' + rankClasses + '">' + boardobj.rows[i][j].rank + '</span></div>');
-		    if(j < (oRow.length - 1))
+		    if(j < (oRow.length - 1) || i < (boardobj.rows.length - 1))
 			eRow.append('<span class="intersect right" data-a="' + i + '" data-b="' + j + '" data-c="1">');
-		    eRow.append('<span class="intersect bottom" data-a="' + i + '" data-b="' + j + '" data-c="0">');
+		    if(i < (boardobj.rows.length - 1))
+		    	eRow.append('<span class="intersect bottom" data-a="' + i + '" data-b="' + j + '" data-c="0">');
 		}
 	    }
 	    
