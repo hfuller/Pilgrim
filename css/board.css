@@ -150,9 +150,6 @@ span.rank{
 .rank.desert{
 	color:#282828;
 }
-.rank.no-show{
-	display:none;
-}
 
 .intersect{
     position:absolute;
