@@ -159,15 +159,27 @@ span.rank{
 }
 
 .intersect{
-    float:left;
-    position:relative;
+    position:absolute;
+	width:18px;
+	height:18px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	/*consider messing with z-index to always make sure the dots are on top of the padding hexes*/
 }
 
 .intersect.bottom{
-    top:125px;
-    left:-52px;
+    top:89px;
+    left:42px;
 }
 .intersect.right{
-    top:90px;
-    left:5px;
+    top:57px;
+    left:101px;
+}
+
+.intersect.red{
+	background: #f00;
+}
+.intersect.blue{
+	background: #00f;
 }
