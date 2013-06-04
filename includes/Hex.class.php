@@ -49,7 +49,7 @@ class Hex implements JsonSerializable {
 			'rank' => $this->rank
 		];
   
-		if($robber){
+		if($this->robber){
 			$json = array_merge($json, ['robber' => $this->robber]);
 		}
 	
