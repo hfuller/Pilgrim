@@ -29,11 +29,13 @@ function resourceNumToString(resourceNum){
 
 function renderBoard() {
 
-	loading("Rendering board");
+	loadingStart("Generating board");
 
     //now usually I don't do this but uh
     $.getJSON('http://pixilic.com/apps/pilgrim/board_debug.php?callback=?')
 	.done( function(boardobj) {
+	
+		loadingStart("Rendering board");
 	    
 	    for ( var i = 0; i < boardobj.rows.length; i++ ) {
 		
@@ -84,7 +86,7 @@ function renderBoard() {
 		}
 	    }
 	    
-		doneLoading();
+		setTimeout(loadingFinish,250);
 		
 	});
 }

@@ -28,7 +28,10 @@ function rotate(x) {
 
 //loading stuff
 var loadDeg = 0; var loadTimer = null; var loadingEl = null;
-function loading(text) {
+
+function loadingStart(text) {
+
+	//alert("loadingStart");
 	
 	if ( loadingEl == null ) {
 		loadingEl = $('<div id="loading"><div class="hex" id="spinner"></div><div id="loading-text">Loading</div></div>');
@@ -41,6 +44,12 @@ function loading(text) {
 		$("#loading-text").text(text);
 	}
 	
+	//and actually kick off the spinner
+	loadingInner();
+	
+}
+function loadingInner() {
+
 	$("#spinner").css('-webkit-transform','rotate('+loadDeg+'deg)');
 	if ( loadDeg >= 60 ) {
 		loadDeg = 0;
@@ -48,12 +57,20 @@ function loading(text) {
 		loadDeg += 10;
 	}
 
-	loadTimer = setTimeout(loading,30);
-
-}
-function doneLoading() {
-	clearTimeout(loadTimer);
-	loadTimer = null;
+	loadTimer = setTimeout(loadingInner,30);
 	
-	$("#loading").hide(250);
+}
+function loadingFinish() {
+
+	$("#loading-text").text("Done!");
+
+	clearTimeout(loadTimer);
+	//if the browser is getting laggy then the timeout doesn't seem to take the first time. maybe a Chrome only issue
+	setTimeout(function() {
+		clearTimeout(loadTimer);
+	},100);
+	
+	setTimeout(function() {
+		$("#loading").hide(250);
+	},1000);
 }
