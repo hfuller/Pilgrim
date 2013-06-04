@@ -12,7 +12,7 @@
 }
 
 
-.hex.water{
+.water{
     background: #31597f;
 }
 .hex.water:before{
@@ -21,7 +21,7 @@
 .hex.water:after{
     border-top: 30px solid #31597f;
 }
-.hex.sheep{
+.sheep{
     background: #7d7;
 }
 .hex.sheep:before{
@@ -30,7 +30,7 @@
 .hex.sheep:after{
     border-top: 30px solid #7d7;
 }
-.hex.wood{
+.wood{
     background: #367636;
 }
 .hex.wood:before{
@@ -39,7 +39,7 @@
 .hex.wood:after{
     border-top: 30px solid #367636;
 }
-.hex.wheat{
+.wheat{
     background: #e0a221;
 }
 .hex.wheat:before{
@@ -48,7 +48,7 @@
 .hex.wheat:after{
     border-top: 30px solid #e0a221;
 }
-.hex.brick{
+.brick{
     background: #ff514a;
 }
 .hex.brick:before{
@@ -57,7 +57,7 @@
 .hex.brick:after{
     border-top: 30px solid #ff514a;
 }
-.hex.ore{
+.ore{
     background: #999;
 }
 .hex.ore:before{
@@ -66,7 +66,7 @@
 .hex.ore:after{
     border-top: 30px solid #999;
 }
-.hex.desert{
+.desert{
     background: #f4be69;
 }
 .hex.desert:before{
@@ -92,9 +92,36 @@ span.rank{
 	text-align: center;
 	text-shadow: 1px 1px 1px #555;
 }
-.rank.desert{
-	color:#282828;
+
+.robber,
+.robber-inner{
+	background:#282828;
 }
+.robber{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	position: relative;
+	top: 11px;
+	left: 32px;
+}
+.robber-middle{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	position: relative;
+	top: 6px;
+	left: 16px;
+}
+.robber-inner{
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	position: absolute;
+	top: 10px;
+	left: 13px;
+}
+
 
 .intersect{
     position:absolute;

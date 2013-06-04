@@ -16,6 +16,7 @@ class Hex implements JsonSerializable {
 	private $border = false;
 	private $type = Hex::Water;
 	private $rank = -1;
+	private $robber = false;
 	
 	public function setBorder($b) {
 		$this->border = $b;
@@ -35,12 +36,24 @@ class Hex implements JsonSerializable {
 		$this->rank = $r;
 	}
 	
+	public function hasRobber(){
+		return $this->robber;
+	}
+	public function setRobber($rob){
+		$this->robber = $rob;
+	}
 	
 	public function jsonSerialize() {
-		return [
+		$json = [
 			'type' => $this->type,
 			'rank' => $this->rank
 		];
+  
+		if($robber){
+			$json = array_merge($json, ['robber' => $this->robber]);
+		}
+	
+		return $json;
 	}
 }
 	

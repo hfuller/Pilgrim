@@ -54,7 +54,11 @@ function renderBoard() {
 		    
 		    //add our hex
 		    var hexHTML = '<div class="hex ' + resourceNumToString(boardobj.rows[i][j].type);
-		    hexHTML += '" data-x="' + i + '" data-y="' + j + '"></div>';
+		    hexHTML += '" data-x="' + i + '" data-y="' + j + '">';
+			if(boardobj.rows[i][j].robber){
+			hexHTML += '<div class="robber"><div class="robber-middle ' + resourceNumToString(boardobj.rows[i][j].type) + '"><div class="robber-inner"></div></div></div>';
+			}
+			hexHTML += '</div>';
 		    //the reason I use .appendTo() is so the hex var contains the hex element that is created.
 		    //if I did eRow.append(hexHTML) then jQuery would attempt to chain it, and eRow would be stored into hex var.
 		    var hex = $(hexHTML).appendTo(eRow);
@@ -64,6 +68,9 @@ function renderBoard() {
 			//well, it's not desert or water, so let's add one
 			hex.append('<span class="rank">' + boardobj.rows[i][j].rank + '</span>');
 		    }
+		
+			
+			
 		    
 		    //just a demo to add some intersections (if we're not on the bottom row)
 		    if ( i < boardobj.rows.length - 1) {
