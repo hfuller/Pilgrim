@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class="ctr-fullheight">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-	<title>Pilgrim [Board]</title>
+	<title>Pilgrim</title>
 	<!-- <meta name="description" content=""> -->
 	<!-- <meta name="keywords" content="Add,your,site,keywords,here"> -->
 	
@@ -12,23 +12,31 @@
 	<script src="js/html5shiv.js"></script>
 	<![endif]-->
 	<script type="text/javascript" src="js/pilgrim.js"></script>
-	<script type="text/javascript" src="js/board.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 	
 	<!-- css -->
 	<link href="css/pure.css" rel="stylesheet" type="text/css">
 	<link href="css/pilgrim.css" rel="stylesheet" type="text/css">
-	<link href="css/board.css" rel="stylesheet" type="text/css">
 
 	
 </head>
-<body>
+<body class="ctr-fullheight">
 
-<div id="container">
-	
-	<div id="board">
+<div class="header">
+	<h1>Pilgrim</h1>
+	<h2>A game involving hexagons</h2>
+</div>
 
+<div class="pure-g ctr-wrapper">
+	<div class="pure-u-1 ctr-cell prettyform">
+		<p>
+			Enter your name to start playing.
+		</p>
+		<form class="pure-form">
+			<input type="text" id="login" placeholder="Name">
+			<button type="submit" class="pure-button pure-button-primary">Continue</button>
+		</form>
 	</div>
-	
 </div>
 
 </body>

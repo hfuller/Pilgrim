@@ -3,61 +3,6 @@
 	/*width: 400px;*/
 }
 
-/* hex stuff thanks to http://jtauber.github.io/articles/css-hexagon.html */
-
-.hex:before {
-    content: " ";
-    width: 0; height: 0;
-    border-bottom: 30px solid #6C6;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
-    position: absolute;
-    top: -30px;
-}
-
-.hex {
-    margin-top: 30px;
-    width: 104px;
-    height: 60px;
-    background-color: #6C6;
-    position: relative;
-	float:left;
-	margin-left: 12px; margin-bottom: 12px; /*channel width*/
-}
-
-.hex:after {
-    content: "";
-    width: 0;
-    position: absolute;
-    bottom: -30px;
-    border-top: 30px solid #6C6;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
-}
-/*
-.hex {
-    float: left;
-    margin-left: 3px;
-    margin-bottom: -26px;
-}
-.hex .top {
-    width: 0;
-    border-bottom: 30px solid #6C6;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
-}
-.hex .middle {
-    width: 104px;
-    height: 60px;
-    background: #6C6;
-}
-.hex .bottom {
-    width: 0;
-    border-top: 30px solid #6C6;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
-}
-*/
 .hex-row {
     clear: left;
 }
@@ -67,7 +12,7 @@
 }
 
 
-.hex.water{
+.water{
     background: #31597f;
 }
 .hex.water:before{
@@ -76,7 +21,7 @@
 .hex.water:after{
     border-top: 30px solid #31597f;
 }
-.hex.sheep{
+.sheep{
     background: #7d7;
 }
 .hex.sheep:before{
@@ -85,7 +30,7 @@
 .hex.sheep:after{
     border-top: 30px solid #7d7;
 }
-.hex.wood{
+.wood{
     background: #367636;
 }
 .hex.wood:before{
@@ -94,7 +39,7 @@
 .hex.wood:after{
     border-top: 30px solid #367636;
 }
-.hex.wheat{
+.wheat{
     background: #e0a221;
 }
 .hex.wheat:before{
@@ -103,7 +48,7 @@
 .hex.wheat:after{
     border-top: 30px solid #e0a221;
 }
-.hex.brick{
+.brick{
     background: #ff514a;
 }
 .hex.brick:before{
@@ -112,7 +57,7 @@
 .hex.brick:after{
     border-top: 30px solid #ff514a;
 }
-.hex.ore{
+.ore{
     background: #999;
 }
 .hex.ore:before{
@@ -121,7 +66,7 @@
 .hex.ore:after{
     border-top: 30px solid #999;
 }
-.hex.desert{
+.desert{
     background: #f4be69;
 }
 .hex.desert:before{
@@ -130,21 +75,16 @@
 .hex.desert:after{
     border-top: 30px solid #f4be69;
 }
-.padding:before {
-	border-bottom-color:#ffffff;
-}
-.padding {
-	background-color:#ffffff;
-}
-.padding:after {
-	border-top-color:#ffffff;
+
+.hex.padding {
+	/*background-color:#ffffff;*/
+	visibility:hidden;
 }
 
 span.rank{
 	padding: 0;
 	margin: 0;
 	color: #fff;
-	font-family: ms shell dlg, calibri, helvetica, arial, times;
 	font-size: 1.5em;
 	position: absolute;
 	top:29%;
@@ -152,9 +92,59 @@ span.rank{
 	text-align: center;
 	text-shadow: 1px 1px 1px #555;
 }
-.rank.desert{
-	color:#282828;
+
+.robber,
+.robber-inner{
+	background:#282828;
 }
-.rank.no-show{
-	display:none;
+.robber{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	position: relative;
+	top: 11px;
+	left: 32px;
+}
+.robber-middle{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	position: relative;
+	top: 6px;
+	left: 16px;
+}
+.robber-inner{
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	position: absolute;
+	top: 10px;
+	left: 13px;
+}
+
+
+.intersect{
+    position:absolute;
+	width:12px;
+	height:12px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	z-index:15;
+}
+
+.intersect.bottom{
+    top:91px;
+    left:46px;
+}
+.intersect.right{
+    top:60px;
+    left:104px;
+}
+
+.intersect.red{
+	background: #f00;
+}
+.intersect.blue{
+	background: #00f;
 }

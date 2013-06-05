@@ -70,6 +70,8 @@ class Board implements JsonSerializable {
 					if ( $hex->getType() != Hex::Desert ) {
 						$hex->setRank($rs[$rsi]);
 						$rsi++;
+					} else {
+						$hex->setRobber(true);
 					}
 				}
 			}
