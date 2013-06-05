@@ -4,22 +4,37 @@ html {
 }
 .header {
 	text-align:center;
-	
-	background: url(../images/fancy.jpg);
+	color:#000;
+	/* if we ever need a text shadow this will be useful. if it looks shitty try lower px
+	text-shadow:
+		2px 2px 0 #fff,
+	   -2px -2px 0 #fff,  
+		2px -2px 0 #fff,
+	   -2px  2px 0 #fff,
+		2px  2px 0 #fff;
+	*/
+		
+    background: url(../images/fancy.jpg);
 	background-repeat:no-repeat;
 	background-position:bottom;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 	
-	height:200px;
+	height:33%;
+	min-height:200px;
 }
-h1,body {
+h1,body,h2 {
 	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	padding-bottom:0px;
 }
 h1 {
 	padding-top:16px;
+	font-size:60px;
+	font-weight:bold;
+}
+h2 {
+	font-size:40px;
+	font-weight:bold;
 }
 
 
@@ -70,4 +85,21 @@ h1 {
 	text-align:center;
 	position:relative;
 	top:30px;
+	font-size:14px;
+}
+
+.ctr-fullheight {
+	height:100%;
+}
+.ctr-wrapper {
+	display:table;
+	height:66%;
+	width:100%;
+}
+.ctr-cell {
+	display:table-cell; vertical-align:middle;
+}
+
+.prettyform {
+	text-align:center;
 }

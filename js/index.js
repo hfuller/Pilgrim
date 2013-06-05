@@ -1,6 +1,6 @@
 $(document).ready(function() { 
     
-	loadingStart("Test load");
+	loadingStart("Not actually loading");
 	setTimeout(loadingFinish,4000);
     
 });
