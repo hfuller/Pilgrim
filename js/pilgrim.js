@@ -51,6 +51,10 @@ function loadingStart(text) {
 function loadingInner() {
 
 	$("#spinner").css('-webkit-transform','rotate('+loadDeg+'deg)');
+	$("#spinner").css('-moz-transform','rotate('+loadDeg+'deg)');
+	$("#spinner").css('-o-transform','rotate('+loadDeg+'deg)');
+	$("#spinner").css('-ms-transform','rotate('+loadDeg+'deg)');
+	
 	if ( loadDeg >= 60 ) {
 		loadDeg = 0;
 	} else {
