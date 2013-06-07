@@ -96,7 +96,6 @@ function renderBoard() {
 	    }
 		$('.intersect').each(
 			function (index){
-				console.log($(this).attr('data-a') + '-' + $(this).attr('data-b') + '-' + $(this).attr('data-c'));
 				$(this).append(generateBorders($(this), index, boardobj));
 			}
 		);
