@@ -125,26 +125,42 @@ span.rank{
 
 .intersect{
     position:absolute;
-	width:12px;
+	/*width:12px;
 	height:12px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
-	z-index:15;
+	z-index:15;*/
+	height: 0;
+	width: 0;
+	border: none;
+	border-top: 45px solid #fff;
+	background: transparent;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	z-index: 1;
 }
 
 .intersect.bottom{
-    top:91px;
-    left:46px;
+    /*top:91px;
+    left:46px;*/
+	top: 62px;
+	left: 23px;
+	-webkit-transform: rotate(180deg);
+	   -moz-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+		    transform: rotate(180deg);
 }
 .intersect.right{
-    top:60px;
-    left:104px;
+    /*top:60px;
+     left:104px;*/
+	top: 50px;
+	left: 80px;
 }
 
-.intersect.red{
+/*.intersect.red{
 	background: #f00;
 }
 .intersect.blue{
 	background: #00f;
-}
+}*/
