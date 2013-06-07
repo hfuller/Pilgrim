@@ -89,78 +89,79 @@ function renderBoard() {
 				       '" data-a="' + i + '" data-b="' + j + '" data-c="0"></span>');
 			}		
 		    }
-		    $('.intersect').forEach(function (element, index, array){
-			if(element.hasClass('right'){
-			    if(index <= (boardobj.rows.length * boardobj.width)/2){
-				if(index < boardobj.rows[1].length){
-					element.append('<span class="border left" data-endpoint="'
-					+ (element.attr('data-x') - 1) 
-					+ '-' 
-					+ element.attr('data-y') 
-					+ '"></span>'
-					+ '<span class="border right" data-endpoint="' 
-					+ (element.attr('data-x') - 1) 
-					+ '-' 
-					+ element.attr('data-y') 
-					+ '"></span>');
-				}
-				element.append('<span class="border "')
-			    }
-			}
-		    });
+		    
 		    
 		}
+
 	    }
-	    
+		$('.intersect').each(
+			function (index){
+				console.log($(this).attr('data-a') + '-' + $(this).attr('data-b') + '-' + $(this).attr('data-c'));
+				$(this).append(generateBorders($(this), index, boardobj));
+			}
+		);
 		setTimeout(loadingFinish,250);
 		
 	});
 }
-IntersectPosEnum{
-	TOP_LEFT : 0,
-	TOP : 1,
-	TOP_RIGHT : 2,
-	MID_LEFT : 3,
-	MID : 4,
-	MID_RIGHT : 5,
-	BOT_LEFT : 6,
-	BOT : 7,
-	BOT_RIGHT : 8
+IntersectPosEnum = {
+	TOP : 0,
+	RIGHT : 1,
+	BOTTOM : 2,
+	LEFT : 3
 };
-function generateBorders(intersection, posType){
-	var topBorder = '<span class="border border-top"></span>';
-	var leftDownBorder = '<span class="border border-down-left"></span>';
-	var rightDownBorder = '<span class="border border-down-right"></span>';
-	var bottomBorder = '<span class="border border-bottom"></span>';
-	var leftUpBorder = '<span class="border border-up-left"></span>';
-	var rightUpBorder = '<span class="border border-up-right"></span>';
-	if(intersection.hasClass('bottom'){
-		switch(type){
-			case IntersectPosEnum.TOP_LEFT:
-			case IntersectPosEnum.MID_LEFT:
-				intersection.append(bottomBorder).append(rightUpBorder);
-				break;
-			case IntersectPosEnum.TOP_RIGHT:
-			case IntersectPosEnum.MID_RIGHT:
-				intersection.append(bottomBorder).append(leftUpBorder);
-				break;
-			case IntersectPosEnum.BOT:
-				intersection.append(rightUpBorder).append(leftUpBorder);
-				break;
-			default:
-				intersection.append(bottomBorder).append(rightUpBorder).append(leftUpBorder);
-				break;
-		}	
-	} else if (intersection.hasClass('right') {
-		switch(type){
-			case IntersectPosEnum.TOP:
-				intersection.append(leftDownBorder).append(rightDownBorder);
-				break;
-			case IntersectPosEnum.
-		}
-	} else {
-		intersection.append('<span class="warning">Something bad happened in generateBorders().</span>');
+function generateBorders(intersection, index, boardobj){
+	var topBorder = '<span class="border border-top"></span>',
+		leftDownBorder = '<span class="border border-down-left"></span>',
+		rightDownBorder = '<span class="border border-down-right"></span>',
+		bottomBorder = '<span class="border border-bottom"></span>',
+		leftUpBorder = '<span class="border border-up-left"></span>',
+		rightUpBorder = '<span class="border border-up-right"></span>',
+		
+		shortestHexRowWidth = (boardobj.width + 1) / 2,
+		middleRowIndex = shortestHexRowWidth - 1, //since we're zero-indexing
+		orientationMode = (intersection.attr('data-a') < middleRowIndex) ? 0 : 1,
+		
+		bordersToAdd = {},
+		addedBorders = '';
+		
+	//determine which borders we're using
+	if(intersection.hasClass('bottom')){
+		bordersToAdd = {
+			verticalBorder: bottomBorder, 
+			leftBorder: leftUpBorder, 
+			rightBorder: rightUpBorder
+		};
+	} else if (intersection.hasClass('right')){
+		bordersToAdd = {
+			verticalBorder: topBorder,
+			leftBorder: leftDownBorder,
+			rightBorder: rightDownBorder
+		};
 	}
+	
+	//determine if we need to not add any borders (due to being on the edge of the board, for example)
+	//see if we're on the top or bottom row AND our vertical border is pointing out of the map
+	//(and remove it as necessary)
+	if((intersection.attr('data-a') == 0 || intersection.attr('data-a') == boardobj.rows.length - 2) && intersection.attr('data-c') == (orientationMode == 0 ? 1 : 0)){
+		delete bordersToAdd['verticalBorder'];
+	}
+	//see if we're on the left side AND our left border is pointing out of the map
+	//(and remove it as necessary)
+	//NOTE: the orientationMode thing fixes mirroring over the middle row
+	if(intersection.attr('data-b') == 0 && intersection.attr('data-c') == orientationMode){
+		delete bordersToAdd['leftBorder'];
+	}
+	//see if we're on the right side AND our right border is pointing out of the map
+	//(and remove it as necessary)
+	if(intersection.attr('data-b') == (parseInt(intersection.attr('data-a')) + 3 - (orientationMode * ((parseInt(intersection.attr('data-a')) - 3) * 2 + 1))) && intersection.attr('data-c') == orientationMode){
+		delete bordersToAdd['rightBorder'];
+	}	
+	//actually add the borders
+	addedBorders += (bordersToAdd['verticalBorder'] != null) ? bordersToAdd['verticalBorder'] : '';
+	addedBorders += (bordersToAdd['leftBorder'] != null) ? bordersToAdd['leftBorder'] : '';
+	addedBorders += (bordersToAdd['rightBorder'] != null) ? bordersToAdd['rightBorder'] : '';
+	return (addedBorders);
 }
 
 $(document).ready(function() { 
