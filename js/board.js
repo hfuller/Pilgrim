@@ -154,7 +154,17 @@ function generateBorders(intersection, index, boardobj){
 	}
 	//see if we're on the right side AND our right border is pointing out of the map
 	//(and remove it as necessary)
-	if(intersection.attr('data-b') == (parseInt(intersection.attr('data-a')) + 3 - (orientationMode * ((parseInt(intersection.attr('data-a')) - 3) * 2 + 1))) && intersection.attr('data-c') == orientationMode){
+	
+	//NOTE: this shit is obtuse. basically, the formula for determining whether or not you're at the end of a row is:
+	
+	// index -- the index (data-b value) of the end intersection
+	// row   -- the row (data-a value) of the row the end intersection is in
+	// mRI   -- aka the "middle row index", the row (data-a value) of the middle row
+	
+	// index = row + mRI,		for above the middle 
+	// index = row + mRI - (2(row - mRI) + 1), 	for below the middle
+	// this works (or should, anyway) for all cases of any size of board.
+	if(intersection.attr('data-b') == (parseInt(intersection.attr('data-a')) + middleRowIndex - (orientationMode * ((parseInt(intersection.attr('data-a')) - middleRowIndex) * 2 + 1))) && intersection.attr('data-c') == orientationMode){
 		delete bordersToAdd['rightBorder'];
 	}	
 	//actually add the borders
