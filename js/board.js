@@ -90,14 +90,88 @@ function renderBoard() {
 			}		
 		    }
 		    
+		    
 		}
+
 	    }
-	    
+		$('.intersect').each(
+			function (index){
+				$(this).append(generateBorders($(this), index, boardobj));
+			}
+		);
 		setTimeout(loadingFinish,250);
 		
 	});
 }
-
+IntersectPosEnum = {
+	TOP : 0,
+	RIGHT : 1,
+	BOTTOM : 2,
+	LEFT : 3
+};
+function generateBorders(intersection, index, boardobj){
+	var topBorder = '<span class="border border-top"></span>',
+		leftDownBorder = '<span class="border border-down-left"></span>',
+		rightDownBorder = '<span class="border border-down-right"></span>',
+		bottomBorder = '<span class="border border-bottom"></span>',
+		leftUpBorder = '<span class="border border-up-left"></span>',
+		rightUpBorder = '<span class="border border-up-right"></span>',
+		
+		shortestHexRowWidth = (boardobj.width + 1) / 2,
+		middleRowIndex = shortestHexRowWidth - 1, //since we're zero-indexing
+		orientationMode = (intersection.attr('data-a') < middleRowIndex) ? 0 : 1,
+		
+		bordersToAdd = {},
+		addedBorders = '';
+		
+	//determine which borders we're using
+	if(intersection.hasClass('bottom')){
+		bordersToAdd = {
+			verticalBorder: bottomBorder, 
+			leftBorder: leftUpBorder, 
+			rightBorder: rightUpBorder
+		};
+	} else if (intersection.hasClass('right')){
+		bordersToAdd = {
+			verticalBorder: topBorder,
+			leftBorder: leftDownBorder,
+			rightBorder: rightDownBorder
+		};
+	}
+	
+	//determine if we need to not add any borders (due to being on the edge of the board, for example)
+	//see if we're on the top or bottom row AND our vertical border is pointing out of the map
+	//(and remove it as necessary)
+	if((intersection.attr('data-a') == 0 || intersection.attr('data-a') == boardobj.rows.length - 2) && intersection.attr('data-c') == (orientationMode == 0 ? 1 : 0)){
+		delete bordersToAdd['verticalBorder'];
+	}
+	//see if we're on the left side AND our left border is pointing out of the map
+	//(and remove it as necessary)
+	//NOTE: the orientationMode thing fixes mirroring over the middle row
+	if(intersection.attr('data-b') == 0 && intersection.attr('data-c') == orientationMode){
+		delete bordersToAdd['leftBorder'];
+	}
+	//see if we're on the right side AND our right border is pointing out of the map
+	//(and remove it as necessary)
+	
+	//NOTE: this shit is obtuse. basically, the formula for determining whether or not you're at the end of a row is:
+	
+	// index -- the index (data-b value) of the end intersection
+	// row   -- the row (data-a value) of the row the end intersection is in
+	// mRI   -- aka the "middle row index", the row (data-a value) of the middle row
+	
+	// index = row + mRI,		for above the middle 
+	// index = row + mRI - (2(row - mRI) + 1), 	for below the middle
+	// this works (or should, anyway) for all cases of any size of board.
+	if(intersection.attr('data-b') == (parseInt(intersection.attr('data-a')) + middleRowIndex - (orientationMode * ((parseInt(intersection.attr('data-a')) - middleRowIndex) * 2 + 1))) && intersection.attr('data-c') == orientationMode){
+		delete bordersToAdd['rightBorder'];
+	}	
+	//actually add the borders
+	addedBorders += (bordersToAdd['verticalBorder'] != null) ? bordersToAdd['verticalBorder'] : '';
+	addedBorders += (bordersToAdd['leftBorder'] != null) ? bordersToAdd['leftBorder'] : '';
+	addedBorders += (bordersToAdd['rightBorder'] != null) ? bordersToAdd['rightBorder'] : '';
+	return (addedBorders);
+}
 
 $(document).ready(function() { 
     
