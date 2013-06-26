@@ -1,7 +1,57 @@
 #board {
 	float: left;
 	/*width: 400px;*/
+	position: relative;
+	top: 103px;
 }
+
+#hand {
+	border-bottom: 2px solid #aaa;
+	height: 80px;
+	width: 100%;
+	position: fixed;
+	right: 0px;
+	z-index: 1000;
+	-webkit-box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
+	   -moz-box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
+                box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
+}
+
+#resources {
+	width: 66%;
+	background: #ddd;
+	float: left;
+	height: 100%;
+}
+#resources > .card {
+	width: 10%;
+	height: 60px;
+	position: relative;
+	float: left;
+	top: 10px;
+	color: #fff;
+	margin-left: 8%;
+	-webkit-box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
+	   -moz-box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
+                box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
+}
+#resources > .card > .amt {
+	position:relative;
+	top:25%;
+	left:40%;
+	font-size: 1.5em;
+	text-align: center;
+	text-shadow: 1px 1px 1px #555;
+}
+#developments {
+	width: 34%;
+	background: #ddd;
+	float: left;
+	height: 100%;
+	border-left: 2px solid #aaa;
+	box-sizing: border-box;
+}
+
 
 .hex-row {
     clear: left;

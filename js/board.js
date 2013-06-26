@@ -27,6 +27,14 @@ function resourceNumToString(resourceNum){
 	}
 }
 
+function renderHand(){
+	$('#wood-count').children('span').text('2');
+	$('#brick-count').children('span').text('3');
+	$('#wheat-count').children('span').text('0');
+	$('#sheep-count').children('span').text('1');
+	$('#ore-count').children('span').text('2');
+}
+
 function renderBoard() {
 
 	loadingStart("Generating board");
@@ -99,6 +107,7 @@ function renderBoard() {
 				$(this).append(generateBorders($(this), index, boardobj));
 			}
 		);
+		renderHand();
 		setTimeout(loadingFinish,250);
 		
 	});
