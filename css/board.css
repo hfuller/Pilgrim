@@ -12,9 +12,9 @@
 	position: fixed;
 	right: 0px;
 	z-index: 1000;
-	-webkit-box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
-	   -moz-box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
-                box-shadow: 0px 1px 5px rgba(40, 40, 40, 0.75);
+	-webkit-box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
+	   -moz-box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
+                box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
 }
 
 #resources {
@@ -31,9 +31,9 @@
 	top: 10px;
 	color: #fff;
 	margin-left: 8%;
-	-webkit-box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
-	   -moz-box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
-                box-shadow: 1px 1px 5px rgba(40, 40, 40, 0.75);
+	-webkit-box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.75);
+	   -moz-box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.75);
+                box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.75);
 }
 #resources > .card > .amt {
 	position:relative;
