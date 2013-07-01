@@ -6,7 +6,6 @@
 }
 
 #hand {
-	border-bottom: 2px solid #aaa;
 	height: 80px;
 	width: 100%;
 	position: fixed;
@@ -43,7 +42,7 @@
 	text-align: center;
 	text-shadow: 1px 1px 1px #555;
 }
-#developments {
+#menu {
 	width: 34%;
 	background: #ddd;
 	float: left;
@@ -51,7 +50,59 @@
 	border-left: 2px solid #aaa;
 	box-sizing: border-box;
 }
-
+#menu > #developments {
+	
+}
+#menu > #actions {
+	width: 29%;
+	background: #ddd;
+	cursor: pointer;
+	height: 100%;
+}
+#menu > #actions:hover{
+	background: #aaa;
+}
+#menu > #actions:hover > .bar {
+	background: #ddd;
+}
+#menu > #actions > .bar {
+	border-radius: 2px;
+	background: #aaa;
+	height: 8px;
+	margin-left: 22px;
+	width: 50%;
+	position:relative;
+}
+.top-bar{
+	top: 20px;
+}
+.mid-bar{
+	top: 26px;
+}
+.bot-bar{
+	top: 32px;
+}
+#menu > #actions > #actions-menu {
+	position: absolute;
+	top: 106%;
+	left: 60%;
+	height: 70px;
+	width: 30%;
+	background: #ddd;
+	-webkit-box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
+	   -moz-box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
+                box-shadow: 0px 1px 5px rgba(100, 100, 100, 0.75);
+}
+#menu > #actions > #actions-menu > .tooltip-conjunction {
+	position: absolute;
+	top: -21%;
+	left: 30%;
+	height: 0; width: 0;
+	border-bottom: 18px solid #ddd;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	z-index: 100;
+}
 
 .hex-row {
     clear: left;
