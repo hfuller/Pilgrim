@@ -18,8 +18,8 @@ html {
 	background-repeat:no-repeat;
 	background-position:bottom;
 	
-	height:33%;
-	min-height:200px;
+	height:25%;
+	min-height:150px;
 }
 h1,body,h2 {
 	margin-top:0px;
@@ -93,7 +93,7 @@ h2 {
 }
 .ctr-wrapper {
 	display:table;
-	height:50%;
+	height:60%;
 	width:100%;
 }
 .ctr-cell {
