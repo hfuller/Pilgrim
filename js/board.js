@@ -181,9 +181,17 @@ function generateBorders(intersection, index, boardobj){
 	addedBorders += (bordersToAdd['rightBorder'] != null) ? bordersToAdd['rightBorder'] : '';
 	return (addedBorders);
 }
+function revealMenu(menu_btn){
+	$(menu_btn).children('.top-menu').css('display', 'inline-block');
+	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
+}
+function hideAllMenus(){
+	$('.top-menu').animate({ opacity: 0.0 }, 300, function () { $('.top-menu').css('display', 'none'); } );
+}
 
 $(document).ready(function() { 
     
 	renderBoard();
-    
+	$('#actions').on('click', function () { revealMenu($(this)); event.stopPropagation(); });
+	$('html').on('click', function () { hideAllMenus(); });
 });
