@@ -143,9 +143,10 @@ span.name {
 #menu > #actions > #actions-menu > .tooltip-conjunction {
 	left: 80%;
 }
-#their-stats .stats-menu > .tooltip-conjunction {
-    top: 90%;
-    left: 67%;
+#their-stats > .stats-menu.top-menu > .tooltip-conjunction {
+    position: absolute;
+    top: -5%;
+    left: 7%;
 }
 .tooltip-conjunction {
     position: absolute;

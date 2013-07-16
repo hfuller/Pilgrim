@@ -186,7 +186,9 @@ function revealMenu(menu_btn){
 	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
 }
 function menuToggle(callback, m){
-	$('.top-menu').animate(
+	$('.top-menu').filter(function (index) {
+        return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
+    }).animate(
 		{ opacity: 0.0 }, 
 		300, 
 		function () { 
@@ -204,4 +206,7 @@ $(document).ready(function() {
 		menuToggle(revealMenu, $(this));
 		event.stopPropagation(); 
 	});
+    $(document).on('click', function () {
+       menuToggle(); 
+    });
 });
