@@ -7,8 +7,8 @@ ResourcesEnum = {
 	ORE : 5,
 	WATER : 6
 };
-function resourceNumToString(resourceNum){
-	switch(resourceNum){
+function resourceNumToString(resourceNum) {
+	switch(resourceNum) {
 		case ResourcesEnum.DESERT:
 			return "desert";
 		case ResourcesEnum.WOOD:
@@ -192,7 +192,7 @@ function menuToggle(callback, m){
 		function () { 
 			$('.top-menu').css('display', 'none'); 
 			if(typeof(callback) == 'function') 
-				callback(m) 
+				callback(m);
 		} 
 	);
 }
@@ -201,7 +201,7 @@ $(document).ready(function() {
     
 	renderBoard();
 	$('#actions,#their-stats').on('click', function () { 
-		menuToggle(revealMenu(), $(this));
+		menuToggle(revealMenu, $(this));
 		event.stopPropagation(); 
 	});
 });
