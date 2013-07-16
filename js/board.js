@@ -27,13 +27,24 @@ function resourceNumToString(resourceNum) {
 	}
 }
 
-function renderHand(){
-	$('#wood-count').children('span').text('2');
-	$('#brick-count').children('span').text('3');
-	$('#wheat-count').children('span').text('0');
-	$('#sheep-count').children('span').text('1');
-	$('#ore-count').children('span').text('2');
-}
+
+IntersectPosEnum = {
+	TOP : 0,
+	RIGHT : 1,
+	BOTTOM : 2,
+	LEFT : 3
+};
+
+
+
+$(document).ready(function() { 
+	renderBoard();
+	registerMenuHandlers();
+});
+
+// =============================
+// SETUP: RENDER BOARD
+// =============================
 
 function renderBoard() {
 
@@ -112,12 +123,7 @@ function renderBoard() {
 		
 	});
 }
-IntersectPosEnum = {
-	TOP : 0,
-	RIGHT : 1,
-	BOTTOM : 2,
-	LEFT : 3
-};
+
 function generateBorders(intersection, index, boardobj){
 	var topBorder = '<span class="border border-top"></span>',
 		leftDownBorder = '<span class="border border-down-left"></span>',
@@ -181,10 +187,43 @@ function generateBorders(intersection, index, boardobj){
 	addedBorders += (bordersToAdd['rightBorder'] != null) ? bordersToAdd['rightBorder'] : '';
 	return (addedBorders);
 }
-function revealMenu(menu_btn){
-	$(menu_btn).children('.top-menu').css('display', 'inline-block');
-	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
+
+function renderHand(){
+	$('#wood-count').children('span').text('2');
+	$('#brick-count').children('span').text('3');
+	$('#wheat-count').children('span').text('0');
+	$('#sheep-count').children('span').text('1');
+	$('#ore-count').children('span').text('2');
 }
+
+
+/* =============================
+ * SETUP: MENU EVENT HANDLERS
+ * ============================= */
+ 
+ 
+// PURPOSE: 
+// Registers event handlers to menu-like UI controls.
+function registerMenuHandlers() {
+    $('#actions,#their-stats').on('click', function () {
+        // if the menu corresponding to the clicked button is already visible, then toggle every menu off.
+        // (more specifically, if this button's first child with class 'top-menu' has an opacity of 1.0, then it is shown, and so toggle every menu off.
+        if($($(this).children('.top-menu')[0]).css('opacity') == 1.0) menuToggle();
+        // otherwise, toggle every menu off, and then toggle the menu corresponding to the clicked button on.
+        // stopPropagation allows us to click out to exit a menu, but not cause every click on the page to exit a menu -- only ones that are not on a menu button.
+        else {
+		  menuToggle(revealMenu, $(this));
+		  event.stopPropagation(); 
+        }
+	});
+    // this lets us click out to exit a menu.
+    $(document).on('click', function () {
+       menuToggle(); 
+    });
+}
+
+// PURPOSE:
+// Toggle proper menus. Hides everything it needs to, then reveals a menu (revealMenu) if proper to do so.
 function menuToggle(callback, m){
 	$('.top-menu').filter(function (index) {
         return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
@@ -199,14 +238,9 @@ function menuToggle(callback, m){
 	);
 }
 
-$(document).ready(function() { 
-    
-	renderBoard();
-	$('#actions,#their-stats').on('click', function () { 
-		menuToggle(revealMenu, $(this));
-		event.stopPropagation(); 
-	});
-    $(document).on('click', function () {
-       menuToggle(); 
-    });
-});
+// PURPOSE:
+// Displays a given button's associated menu.
+function revealMenu(menu_btn){
+	$(menu_btn).children('.top-menu').css('display', 'inline-block');
+	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
+}
