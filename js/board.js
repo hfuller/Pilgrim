@@ -185,13 +185,23 @@ function revealMenu(menu_btn){
 	$(menu_btn).children('.top-menu').css('display', 'inline-block');
 	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
 }
-function hideAllMenus(){
-	$('.top-menu').animate({ opacity: 0.0 }, 300, function () { $('.top-menu').css('display', 'none'); } );
+function menuToggle(callback, m){
+	$('.top-menu').animate(
+		{ opacity: 0.0 }, 
+		300, 
+		function () { 
+			$('.top-menu').css('display', 'none'); 
+			if(typeof(callback) == 'function') 
+				callback(m) 
+		} 
+	);
 }
 
 $(document).ready(function() { 
     
 	renderBoard();
-	$('#actions').on('click', function () { revealMenu($(this)); event.stopPropagation(); });
-	$('html').on('click', function () { hideAllMenus(); });
+	$('#actions,#their-stats').on('click', function () { 
+		menuToggle(revealMenu(), $(this));
+		event.stopPropagation(); 
+	});
 });
