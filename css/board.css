@@ -87,7 +87,7 @@ span.name {
 }
 
 #menu {
-	width: 10%;
+	width: 190px;
 	background: #ddd;
 	float: left;
 	height: 100%;
@@ -95,13 +95,16 @@ span.name {
 	box-sizing: border-box;
 }
 #menu > #developments {
-	
+	width: 50%;
+    height: 100%;
+    float: left;
 }
 #menu > #actions {
-	width: 100%;
+	width: 50%;
 	background: #ddd;
 	cursor: pointer;
 	height: 100%;
+    float:left;
 }
 #menu > #actions:hover{
 	background: #aaa;
@@ -140,22 +143,24 @@ span.name {
                 box-shadow: 0px 0px 6px rgba(100, 100, 100, 0.75);
 	border-radius: 2px;
 }
-#menu > #actions > #actions-menu > .tooltip-conjunction {
-	left: 80%;
+#menu > #actions > #actions-menu + .tooltip-conjunction {
+    top: 60%;
+	left: 30%;
 }
-#their-stats > .stats-menu.top-menu > .tooltip-conjunction {
-    position: absolute;
+#their-stats > .stats-menu.top-menu + .tooltip-conjunction {
     top: -5%;
     left: 7%;
 }
 .tooltip-conjunction {
-    position: absolute;
-	top: -21%;
+    position: relative;
+	top: -700%;
+    left: 10%;
     height: 0; width: 0;
 	border-bottom: 18px solid #ddd;
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	z-index: 100;
+    opacity: 0;
 }
 
 .hex-row {

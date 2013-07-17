@@ -227,7 +227,7 @@ function registerMenuHandlers() {
 function menuToggle(callback, m){
 	$('.top-menu').filter(function (index) {
         return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
-    }).animate(
+    }).add('.tooltip-conjunction').animate(
 		{ opacity: 0.0 }, 
 		300, 
 		function () { 
@@ -242,5 +242,5 @@ function menuToggle(callback, m){
 // Displays a given button's associated menu.
 function revealMenu(menu_btn){
 	$(menu_btn).children('.top-menu').css('display', 'inline-block');
-	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
+	$(menu_btn).children('.top-menu,.tooltip-conjunction').animate({ opacity: 1.0 }, 300, function () { } );
 }
