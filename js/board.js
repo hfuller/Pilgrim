@@ -226,8 +226,8 @@ function registerMenuHandlers() {
 // Toggle proper menus. Hides everything it needs to, then reveals a menu (revealMenu) if proper to do so.
 function menuToggle(callback, m){
 	$('.top-menu').filter(function (index) {
-        return typeof m == 'undefined' || $(this).html() != $(m.siblings('.top-menu')[0]).html();
-    }).add('.tooltip-conjunction').animate(
+        return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
+    }).animate(
 		{ opacity: 0.0 }, 
 		300, 
 		function () { 
@@ -242,5 +242,5 @@ function menuToggle(callback, m){
 // Displays a given button's associated menu.
 function revealMenu(menu_btn){
 	$(menu_btn).children('.top-menu').css('display', 'inline-block');
-	$(menu_btn).children('.top-menu').add($(menu_btn).children('.tooltip-conjunction')).animate({ opacity: 1.0 }, 300, function () { } );
+	$(menu_btn).children('.top-menu').animate({ opacity: 1.0 }, 300, function () { } );
 }
