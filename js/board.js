@@ -208,7 +208,7 @@ function registerMenuHandlers() {
     $('#actions,#their-stats').on('click', function () {
         // if the menu corresponding to the clicked button is already visible, then toggle every menu off.
         // (more specifically, if this button's first child with class 'top-menu' has an opacity of 1.0, then it is shown, and so toggle every menu off.
-        if($($(this).children('.top-menu')[0]).css('opacity') > 1.0) menuToggle();
+        if($($(this).children('.top-menu')[0]).css('opacity') > 0) menuToggle();
         // otherwise, toggle every menu off, and then toggle the menu corresponding to the clicked button on.
         // stopPropagation allows us to click out to exit a menu, but not cause every click on the page to exit a menu -- only ones that are not on a menu button.
         else {
