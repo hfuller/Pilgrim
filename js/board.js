@@ -225,17 +225,19 @@ function registerMenuHandlers() {
 // PURPOSE:
 // Toggle proper menus. Hides everything it needs to, then reveals a menu (revealMenu) if proper to do so.
 function menuToggle(callback, m){
-	$('.top-menu').filter(function (index) {
-        return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
-    }).animate(
-		{ opacity: 0.0 }, 
-		300, 
-		function () { 
-			$('.top-menu').css('display', 'none'); 
-			if(typeof(callback) == 'function') 
-				callback(m);
-		} 
-	);
+	var shown_top_menus = $('.top-menu').filter(function (index) {
+		return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
+	});
+    	if(shown_top_menus.length > 0)
+		shown_top_menus.animate(
+			{ opacity: 0.0 }, 
+			300, 
+			function () { 
+				$('.top-menu').css('display', 'none'); 
+				if(typeof(callback) == 'function') 
+					callback(m);
+			} 
+		);
 }
 
 // PURPOSE:
