@@ -15,6 +15,14 @@ class Page {
 		return $this->title;
 	}
 	
+	/*FIX THESE*/
+	public function getPathToBase() {
+		return '.';
+	}
+	public function getShortName() {
+		return strtolower($this->getTitle());
+	}
+	
 	public function getHeader($title) {
 		$s =  '<!DOCTYPE html>
 <html>
@@ -45,6 +53,8 @@ class Page {
 	
 </head>
 ';
+
+		return $s;
 	}
 	
 }
