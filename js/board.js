@@ -208,7 +208,7 @@ function registerMenuHandlers() {
     $('#actions,#their-stats').on('click', function () {
         // if the menu corresponding to the clicked button is already visible, then toggle every menu off.
         // (more specifically, if this button's first child with class 'top-menu' has an opacity of 1.0, then it is shown, and so toggle every menu off.
-        if($($(this).children('.top-menu')[0]).css('opacity') == 1.0) menuToggle();
+        if($($(this).children('.top-menu')[0]).css('opacity') > 0) menuToggle();
         // otherwise, toggle every menu off, and then toggle the menu corresponding to the clicked button on.
         // stopPropagation allows us to click out to exit a menu, but not cause every click on the page to exit a menu -- only ones that are not on a menu button.
         else {
@@ -220,22 +220,43 @@ function registerMenuHandlers() {
     $(document).on('click', function () {
        menuToggle(); 
     });
+    $(document).on('keyup', function (e) {
+       switch (e.which) {
+          case 83: // s
+		if($($('#their-stats').children('.top-menu')[0]).css('opacity') > 0) menuToggle();
+		else menuToggle(revealMenu, $('#their-stats'));
+		break;
+	  case 65: // a
+		if($($('#actions').children('.top-menu')[0]).css('opacity') > 0) menuToggle();
+		else menuToggle(revealMenu, $('#actions'));
+		break;
+	  case 27: // esc
+       		menuToggle();
+		break;
+	  default:
+		break;
+       }
+    });
 }
 
 // PURPOSE:
 // Toggle proper menus. Hides everything it needs to, then reveals a menu (revealMenu) if proper to do so.
 function menuToggle(callback, m){
-	$('.top-menu').filter(function (index) {
-        return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
-    }).animate(
-		{ opacity: 0.0 }, 
-		300, 
-		function () { 
-			$('.top-menu').css('display', 'none'); 
-			if(typeof(callback) == 'function') 
-				callback(m);
-		} 
-	);
+	var shown_top_menus = $('.top-menu').filter(function (index) {
+		
+		return $(this).css('opacity') > 0;
+	});
+    	if(shown_top_menus.length > 0) {
+		shown_top_menus.animate(
+			{ opacity: 0.0 }, 
+			300, 
+			function () { 
+				$('.top-menu').css('display', 'none'); 
+				if(typeof(callback) == 'function') 
+					callback(m);
+			} 
+		);
+	} else if (typeof(callback) == 'function') callback(m);
 }
 
 // PURPOSE:
