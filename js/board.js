@@ -244,7 +244,7 @@ function registerMenuHandlers() {
 function menuToggle(callback, m){
 	var shown_top_menus = $('.top-menu').filter(function (index) {
 		
-		return $(this).css('opacity') > 1.0;
+		return $(this).css('opacity') > 0;
 	});
     	if(shown_top_menus.length > 0) {
 		shown_top_menus.animate(
