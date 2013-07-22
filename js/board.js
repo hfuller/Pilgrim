@@ -220,15 +220,27 @@ function registerMenuHandlers() {
     $(document).on('click', function () {
        menuToggle(); 
     });
+    $(document).on('keyup', function (e) {
+       switch (e.which) {
+          case 83: // s
+		if($($('#their-stats').children('.top-menu')[0]).css('opacity') > 0) menuToggle();
+		else menuToggle(revealMenu, $('#their-stats'));
+		break;
+	  case 27: // esc
+       		menuToggle();
+		break;
+       }
+    });
 }
 
 // PURPOSE:
 // Toggle proper menus. Hides everything it needs to, then reveals a menu (revealMenu) if proper to do so.
 function menuToggle(callback, m){
 	var shown_top_menus = $('.top-menu').filter(function (index) {
-		return typeof m == 'undefined' || $(this).html() != $(m.children('.top-menu')[0]).html();
+		
+		return $(this).css('opacity') == 1.0;
 	});
-    	if(shown_top_menus.length > 0)
+    	if(shown_top_menus.length > 0) {
 		shown_top_menus.animate(
 			{ opacity: 0.0 }, 
 			300, 
@@ -238,6 +250,7 @@ function menuToggle(callback, m){
 					callback(m);
 			} 
 		);
+	} else if (typeof(callback) == 'function') callback(m);
 }
 
 // PURPOSE:
