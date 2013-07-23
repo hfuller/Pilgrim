@@ -216,3 +216,4 @@ pip-log.txt
 notrack
 
 dbconfig.php
+includes/DatabaseInfo.class.php

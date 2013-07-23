@@ -6,23 +6,29 @@
 class Database {
 
 	private $pdo;
-
-	//put dbconfig.php in app root
-	//looks like this:
-	//<?php
-	//const host = "localhost";
-	//const user = "Pilgrim";
-	//const pass = "whateverthepasswordis";
-	//const name = "Pilgrim";
-	require_once("../dbconfig.php");
 	
+	const host = "";
+	const user = "";
+	const pass = "";
+	const name = "";
+
 	public function __construct() {
 	
 		global $app;
-	
+		
+		//put DatabaseInfo.class.php in includes/
+		//looks like this:
+		//<?php
+		//class DatabaseInfo {
+		//	const host = "localhost";
+		//	const user = "Pilgrim";
+		//	const pass = "whateverthepasswordis";
+		//	const name = "Pilgrim";
+		//}
+		
 		try {
-			$this->pdo = new PDO('mysql:host=' . Database::host . ';dbname=' . Database::name,
-				Database::user, Database::pass,
+			$this->pdo = new PDO('mysql:host=' . DatabaseInfo::host . ';dbname=' . DatabaseInfo::name,
+				DatabaseInfo::user, DatabaseInfo::pass,
 				array(
 					PDO::ATTR_PERSISTENT => true,
 					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
