@@ -9,6 +9,7 @@ class Database {
 
 	//put dbconfig.php in app root
 	//looks like this:
+	//<?php
 	//const host = "localhost";
 	//const user = "Pilgrim";
 	//const pass = "whateverthepasswordis";
