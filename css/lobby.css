@@ -1,0 +1,10 @@
+.top-bar {
+    height: 2rem;
+    position: fixed;
+}
+
+input#search {
+    float: right;
+    border: none;
+    border-left: 1px solid #ddd;
+}
