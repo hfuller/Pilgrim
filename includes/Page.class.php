@@ -47,7 +47,8 @@ class Page {
 	<script type="text/javascript" src="' . $this->getPathToBase() . '/js/' . $this->getShortName() . '.js"></script>
 	
 	<!-- css -->
-	<link href="' . $this->getPathToBase() . '/css/pure.css" rel="stylesheet" type="text/css">
+	<link href="' . $this->getPathToBase() . '/css/pure-min.css" rel="stylesheet" type="text/css">
+	<link href="' . $this->getPathToBase() . '/css/pure.pilgrim.css" rel="stylesheet" type="text/css">
 	<link href="' . $this->getPathToBase() . '/css/pilgrim.css" rel="stylesheet" type="text/css">
 	<link href="' . $this->getPathToBase() . '/css/' . $this->getShortName() . '.css" rel="stylesheet" type="text/css">
 	
