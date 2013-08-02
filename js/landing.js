@@ -1,6 +1,5 @@
 $(function () {
     $('.icon.icon-start,#start').click(function () {
-        alert('thfdsa');
         window.location = 'board.php';
     });
     $('.icon.icon-continue,#continue').on('click', function () {
