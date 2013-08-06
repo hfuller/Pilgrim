@@ -7,7 +7,7 @@ echo($page->getHeader($page->getTitle()));
 <body>
     <div class="pure-g-r">
         <div id="start" class="pure-u-1-3">
-            <div class="icon icon-start"></div>
+            <a class="icon icon-start"></a>
         </div>
         <div id="continue" class="pure-u-1-3">
             <div class="icon icon-continue"> </div>

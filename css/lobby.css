@@ -1,11 +1,38 @@
 .top-bar {
-    height: 2rem;
+    height: 34px;
     width: 100%;
     position: fixed;
+    top: 0px;
+    border-bottom: 1px solid #ddd;
+    background: white;
 }
 
 input#search {
-    float: right;
     border: none;
-    border-left: 1px solid #ddd;
+    width: 20%;
+    border-right: 1px solid #ddd;
+}
+
+#results { 
+    position: relative;
+    top: 34px;    
+}
+
+#results > section.game {
+    cursor: pointer;
+}
+
+#results > section.game:hover {
+    background: #7d7;
+    color: white;
+}
+
+#results > section.game > h1.title {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+#results > section.game > p {
+    padding-bottom: 12px;
+    margin: 0;
 }

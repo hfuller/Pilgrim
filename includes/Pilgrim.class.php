@@ -9,7 +9,7 @@ class Pilgrim {
 		$_SESSION["id"] = $user->getId();
 		$_SESSION["user"] = $user;		
 	}
-
+    
 	public function requireAuthenticatedUser() {
 		if ( !(array_key_exists("valid",$_SESSION) && $_SESSION["valid"]) ) {
 			die(header("Location: ."));

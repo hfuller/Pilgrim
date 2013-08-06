@@ -40,6 +40,13 @@ class Database {
 		
 	}
 	
+    public function getUserFromID($id) {
+        $q = $this->pdo->prepare('SELECT * FROM users WHERE id = ?');
+		$q->bindParam(1,$id);
+		$q->execute();
+		return $q->fetchObject("User");  
+    }
+    
 	public function getUserFromLogin($login) {
 		$q = $this->pdo->prepare('SELECT * FROM users WHERE login = ?');
 		$q->bindParam(1,$login);
@@ -55,9 +62,9 @@ class Database {
 	}
 	
 	public function getGames($all) {
-		$query = 'SELECT * FROM games';
-		if ( !$all ) $query .= ' WHERE active=1';
-		$this->pdo->prepare($query);
+		$q = 'SELECT * FROM games';
+		if ( !$all ) $q .= ' WHERE active=1';
+		$q = $this->pdo->prepare($q);
 		$q->execute();
 		return $q->fetchAll(PDO::FETCH_OBJ);
 	}

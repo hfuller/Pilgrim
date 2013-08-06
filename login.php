@@ -17,6 +17,7 @@ if ( !$user ) {							//if there is STILL no user
 $app->setCurrentUser($user);
 
 //and now that user is logged in
-header("Location: landing.php");
+header("Location: lobby.php");
+//maybe if we're mobile we'll go to landing.php instead
 
 ?>
