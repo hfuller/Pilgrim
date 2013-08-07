@@ -13,7 +13,7 @@ class Game {
 	public function getPlayerCount() {
 		$count = 0;
 		for ( $i = 1; $i <= 4; $i++ ) {
-			$x = 'p' . $num . 'id';
+			$x = 'p' . $i . 'id';
 			if ( $this->$x != NULL ) $count++;
 		}
 		return $count;
