@@ -17,14 +17,18 @@ $games = $db->getGames(true);
     <!-- This needs to grab a list of database entries and print each one. -->
     <?php 
     foreach($games as $game) {
-        echo("<section id=\"" . $game->id . "\" class=\"game\">");
-            echo("<h1 class=\"title\">" . $game->name . "</h1>");
-            $numPlayers = 0;
-            if($game->p1id) { /*echo("<p class=\"player player-1\">" . $db->getUserFromID($game->p1id)->getLogin() . "</p>");*/ $numPlayers = $numPlayers + 1; }
-            if($game->p2id) { /*echo("<p class=\"player player4-2\">" . $db->getUserFromID($game->p2id)->getLogin() . "</p>");*/ $numPlayers = $numPlayers + 1; }
-            if($game->p3id) { /*echo("<p class=\"player player-3\">" . $db->getUserFromID($game->p3id)->getLogin() . "</p>");*/ $numPlayers = $numPlayers + 1; }
-            if($game->p4id) { /*echo("<p class=\"player player-4\">" . $db->getUserFromID($game->p4id)->getLogin() . "</p>");*/ $numPlayers = $numPlayers + 1; }
-            echo("<p class=\"player-count\">" . $numPlayers . "/4 players</p>");
+        echo("<section id=\"" . $game->getId() . "\" class=\"game\">");
+            echo("<h1 class=\"title\">" . $game->getName() . "</h1>");
+			
+			echo('<p>Players: ');
+			for ( $i = 1; $i <= $game->getPlayerCount(); $i++ ) {
+				echo('<span class="player player-' . $i . '">' . $game->getPlayer($i)->getLogin() . '</span>');
+				if ( $i < $game->getPlayerCount() ) echo(',');
+				echo(' ');
+			}
+			echo('</p>');
+			
+            echo("<p class=\"player-count\">" . $game->getPlayerCount() . "/4 players</p>");
         echo("</section>");
     }
     ?>
