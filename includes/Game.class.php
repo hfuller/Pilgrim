@@ -13,7 +13,8 @@ class Game {
 	public function getPlayerCount() {
 		$count = 0;
 		for ( $i = 1; $i <= 4; $i++ ) {
-			if ( $this->getPlayer($i) != NULL ) $count++;
+			$x = 'p' . $num . 'id';
+			if ( $this->$x != NULL ) $count++;
 		}
 		return $count;
 	}
