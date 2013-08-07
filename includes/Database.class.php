@@ -66,7 +66,7 @@ class Database {
 		if ( !$all ) $q .= ' WHERE active=1';
 		$q = $this->pdo->prepare($q);
 		$q->execute();
-		return $q->fetchAll(PDO::FETCH_OBJ);
+		return $q->fetchAll(PDO::FETCH_CLASS,"Game");
 	}
 		
 }
