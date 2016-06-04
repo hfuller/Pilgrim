@@ -51,7 +51,7 @@ function renderBoard() {
   loadingStart("Generating board");
 
   //now usually I don't do this but uh
-  $.getJSON('http://pixilic.com/apps/pilgrim/board_debug.php?callback=?')
+  $.getJSON('/apps/pilgrim/board_debug.php?callback=?')
     .done( function(boardobj) {
 
     loadingStart("Rendering board");
