@@ -1,0 +1,7 @@
+@import 'partials/variables';
+
+@mixin box-shadow($offsetX, $offsetY, $blurRadius, $color: $box-shadow-color) {
+  -webkit-box-shadow: $offsetX, $offsetY, $blurRadius, $color;
+  -moz-box-shadow: $offsetX, $offsetY, $blurRadius, $color;
+  box-shadow: $offsetX, $offsetY, $blurRadius, $color;
+}
