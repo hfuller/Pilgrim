@@ -1,7 +1,42 @@
 @import 'variables';
 
 @mixin box-shadow($offsetX, $offsetY, $blurRadius, $color: $box-shadow-color) {
-  -webkit-box-shadow: $offsetX, $offsetY, $blurRadius, $color;
-  -moz-box-shadow: $offsetX, $offsetY, $blurRadius, $color;
-  box-shadow: $offsetX, $offsetY, $blurRadius, $color;
+  -webkit-box-shadow: $offsetX $offsetY $blurRadius $color;
+  -moz-box-shadow: $offsetX $offsetY $blurRadius $color;
+  box-shadow: $offsetX $offsetY $blurRadius $color;
+}
+
+@mixin hex($width, $height, $color: $default-hex-color) {
+  
+  background-color: #{$color};
+
+  position: relative;
+  width: $width;
+  height: ($height / 2);
+
+  float: left;
+
+  margin-bottom: ($height / 4) + 12px;
+  margin-left: ($width / 8);
+
+  &:before {
+    content: "";
+    width: 0; height: 0;
+    border-bottom: ($height / 4) solid #{$color};
+    border-left: ($width / 2) solid transparent;
+    border-right: ($width / 2) solid transparent;
+
+    position: absolute;
+    top: (-1 * $height / 4);
+  }
+  &:after {
+    content: "";
+    width: 0; height: 0;
+    border-top: ($height / 4) solid #{$color};
+    border-left: ($width / 2) solid transparent;
+    border-right: ($width / 2) solid transparent;
+
+    position: absolute;
+    bottom: (-1 * $height / 4);
+  }
 }

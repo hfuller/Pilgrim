@@ -1,3 +1,6 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+
 #board {
   float: left;
   position: relative;
@@ -202,73 +205,50 @@ span.amt {
   /*it needs to be 53 + half of your hex's margin-left*/
 }
 
-
-.water{
-  background: #31597f;
+.water {
+  background: $water-color;
 }
-.hex.water:before{
-  border-bottom: 30px solid #31597f;
+.wool {
+  background: $wool-color;
 }
-.hex.water:after{
-  border-top: 30px solid #31597f;
+.wood {
+  background: $wood-color;
 }
-.sheep{
-  background: #7d7;
+.wheat {
+  background: $wheat-color;
 }
-.hex.sheep:before{
-  border-bottom: 30px solid #7d7;
+.brick {
+  background: $brick-color;
 }
-.hex.sheep:after{
-  border-top: 30px solid #7d7;
+.ore {
+  background: $ore-color;
 }
-.wood{
-  background: #367636;
-}
-.hex.wood:before{
-  border-bottom: 30px solid #367636;
-}
-.hex.wood:after{
-  border-top: 30px solid #367636;
-}
-.wheat{
-  background: #e0a221;
-}
-.hex.wheat:before{
-  border-bottom: 30px solid #e0a221;
-}
-.hex.wheat:after{
-  border-top: 30px solid #e0a221;
-}
-.brick{
-  background: #ff514a;
-}
-.hex.brick:before{
-  border-bottom: 30px solid #ff514a;
-}
-.hex.brick:after{
-  border-top: 30px solid #ff514a;
-}
-.ore{
-  background: #999;
-}
-.hex.ore:before{
-  border-bottom: 30px solid #999;
-}
-.hex.ore:after{
-  border-top: 30px solid #999;
-}
-.desert{
-  background: #f4be69;
-}
-.hex.desert:before{
-  border-bottom: 30px solid #f4be69;
-}
-.hex.desert:after{
-  border-top: 30px solid #f4be69;
+.desert {
+  background: $desert-color;
 }
 
+.hex.water {
+  @include hex($default-hex-width, $default-hex-height, $water-color);
+}
+.hex.wool {
+  @include hex($default-hex-width, $default-hex-height, $wool-color);
+}
+.hex.wood {
+  @include hex($default-hex-width, $default-hex-height, $wood-color);
+}
+.hex.wheat {
+  @include hex($default-hex-width, $default-hex-height, $wheat-color);
+}
+.hex.brick{
+  @include hex($default-hex-width, $default-hex-height, $brick-color);
+}
+.hex.ore{
+  @include hex($default-hex-width, $default-hex-height, $ore-color);
+}
+.hex.desert{
+  @include hex($default-hex-width, $default-hex-height, $desert-color);
+}
 .hex.padding {
-  /*background-color:#ffffff;*/
   visibility:hidden;
 }
 
@@ -317,6 +297,7 @@ span.rank{
 
 
 .intersect{
+  display: none;
   position:absolute;
   width:12px;
   height:12px;
