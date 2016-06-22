@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 //      },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: '<%= php.options.livereload %>'
         },
         files: [
           'index.html',
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       }
     },
 
-    connect: {
+    php: {
       options: {
         port: 1107,
         open: true,
@@ -120,7 +120,7 @@ module.exports = function (grunt) {
   // Build, watch, and livereload on an express server.
   grunt.registerTask('serve', [
     'build',
-    'connect:livereload',
+    'php:livereload',
     'watch'
   ])
   
