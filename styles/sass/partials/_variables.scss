@@ -10,5 +10,8 @@ $brick-color: #ff514a;
 $ore-color: #999;
 $desert-color: #f4be69;
 
-$default-hex-width: 104px;
-$default-hex-height: 120px;
+$default-hex-width: 52px;
+$default-hex-height: 60px;
+$default-hex-margin-left: ($default-hex-height / 2) - 1px;
+$default-robber-outer-size: $default-hex-width - ($default-hex-height / 3);
+$default-robber-middle-size: $default-robber-outer-size / 2;

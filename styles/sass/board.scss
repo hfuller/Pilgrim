@@ -2,9 +2,10 @@
 @import 'partials/mixins';
 
 #board {
-  float: left;
-  position: relative;
-  top: 103px;
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  padding-top: 120px;
 }
 
 #hand {
@@ -201,29 +202,32 @@ span.amt {
   clear: left;
 }
 .hex-row.even {
-  margin-left: 59px; /*if you make the channels bigger then you need to adjust this*/
+  margin-left: $default-hex-margin-left; /*if you make the channels bigger then you need to adjust this*/
   /*it needs to be 53 + half of your hex's margin-left*/
 }
 
-.water {
+// Resource classes -- double-classed to increase
+// rule priority. Seems hackish, but it's necessary
+// to create the robber visual (which is a hack).
+.water.water {
   background: $water-color;
 }
-.wool {
+.wool.wool {
   background: $wool-color;
 }
-.wood {
+.wood.wood {
   background: $wood-color;
 }
-.wheat {
+.wheat.wheat {
   background: $wheat-color;
 }
-.brick {
+.brick.brick {
   background: $brick-color;
 }
-.ore {
+.ore.ore {
   background: $ore-color;
 }
-.desert {
+.desert.desert {
   background: $desert-color;
 }
 
@@ -239,13 +243,13 @@ span.amt {
 .hex.wheat {
   @include hex($default-hex-width, $default-hex-height, $wheat-color);
 }
-.hex.brick{
+.hex.brick {
   @include hex($default-hex-width, $default-hex-height, $brick-color);
 }
-.hex.ore{
+.hex.ore {
   @include hex($default-hex-width, $default-hex-height, $ore-color);
 }
-.hex.desert{
+.hex.desert {
   @include hex($default-hex-width, $default-hex-height, $desert-color);
 }
 .hex.padding {
@@ -258,68 +262,19 @@ span.rank{
   color: #fff;
   font-size: 1.5em;
   position: absolute;
-  top:29%;
+  top: 29%;
   width: 104px;
   text-align: center;
   text-shadow: 1px 1px 1px #555;
 }
 
-.robber,
-.robber-inner{
-  background:#282828;
-}
 .robber{
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  @include box-shadow(0, 0, 5px);
-  position: relative;
-  top: 11px;
-  left: 32px;
-}
-.robber-middle{
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  position: relative;
-  top: 6px;
-  left: 16px;
-}
-.robber-inner{
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  @include box-shadow(0, 0, 5px);
-  position: absolute;
-  top: 10px;
-  left: 13px;
+  @include robber($default-hex-width - ($default-hex-height / 3));
 }
 
 
 .intersect {
-  position:absolute;
-  width:12px;
-  height:12px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  z-index:15;
-}
-
-.intersect.bottom{
-  top:91px;
-  left:46px;
-}
-.intersect.right{
-  top:60px;
-  left:104px;
-}
-
-.intersect.red{
-  background: #f00;
-}
-.intersect.blue{
-  background: #00f;
+  @include intersect($default-hex-width, $default-hex-height);
 }
 
 .border{

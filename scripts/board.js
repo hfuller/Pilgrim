@@ -75,7 +75,7 @@ function renderBoard() {
         var hexHTML = '<div class="hex ' + resourceNumToString(boardobj.rows[i][j].type);
         hexHTML += '" data-x="' + i + '" data-y="' + j + '">';
         if(boardobj.rows[i][j].robber){
-          hexHTML += '<div class="robber"><div class="robber-middle ' + resourceNumToString(boardobj.rows[i][j].type) + '"><div class="robber-inner"></div></div></div>';
+          hexHTML += '<div class="robber"><div class="robber middle ' + resourceNumToString(boardobj.rows[i][j].type) + '"><div class="robber inner"></div></div></div>';
         }
         hexHTML += '</div>';
         //the reason I use .appendTo() is so the hex var contains the hex element that is created.

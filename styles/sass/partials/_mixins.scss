@@ -40,3 +40,63 @@
     bottom: (-1 * $height / 4);
   }
 }
+
+@mixin robber ($diameter) {
+  
+  background-color: #282828;
+  
+  width: $diameter;
+  height: $diameter;
+  border-radius: $diameter / 2;
+  @include box-shadow(0, 0, 5px);
+  position: relative;
+  
+  &.middle {
+    
+    width: $diameter / 2;
+    height: $diameter / 2;
+    border-radius: $diameter / 4;
+    
+    position: relative;
+    top: $diameter / 4;
+    left: $diameter / 2;
+  }  
+  
+  &.inner {
+    
+    background-color: #282828;
+    
+    width: $diameter / 4;
+    height: $diameter / 4;
+    border-radius: 5px;
+    @include box-shadow(0, 0, 5px);
+  }
+}
+
+@mixin intersect ($hex-width, $hex-height) {
+  
+  position: absolute;
+  width: $hex-height / 10;
+  height: $hex-height / 10;
+  
+  -webkit-border-radius: $hex-height / 10;
+  -moz-border-radius: $hex-height / 10;
+  border-radius: $hex-height / 10;
+  
+  z-index: 15;
+  
+  &.bottom {
+    top: 3 * $hex-height / 4;
+    left: $hex-width / 2;
+  }
+  &.right {
+    top: $hex-height / 2;
+    left: $hex-width;
+  }
+  &.red {
+    background: #d42;
+  }
+  &.blue {
+    background: #42d;
+  }
+}
