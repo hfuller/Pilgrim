@@ -269,7 +269,7 @@ span.rank{
 }
 
 .robber{
-  @include robber($default-hex-width - ($default-hex-height / 3));
+  @include robber($default-hex-width - ($default-hex-height / 2.5));
 }
 .intersect {
   @include intersect($default-hex-width, $default-hex-height);
