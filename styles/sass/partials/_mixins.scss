@@ -40,7 +40,6 @@
     bottom: (-1 * $height / 4);
   }
 }
-
 @mixin robber ($diameter) {
   
   background-color: #282828;
@@ -72,7 +71,6 @@
     @include box-shadow(0, 0, 5px);
   }
 }
-
 @mixin intersect ($hex-width, $hex-height) {
   
   position: absolute;
@@ -98,5 +96,59 @@
   }
   &.blue {
     background: #42d;
+  }
+}
+@mixin border ($hex-width) {
+  width: $hex-width / 3;
+  height: $default-border-thickness;
+  position: absolute;
+  background: white;
+  border: 1px solid #31597f;
+  border-radius: $default-border-thickness;
+  
+  &.border-bottom {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-top: $hex-width - ($hex-width / 5);
+    margin-left: -($hex-width - ($hex-width / 5)) / 2;
+    display: none;
+  }
+  &.border-down-left {
+    -webkit-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    margin-top: $hex-width / 5;
+    margin-left: -($hex-width - ($hex-width / 10));
+    display: none;
+  }
+  &.border-down-right{
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+    margin-top: $hex-width / 5;
+    margin-left: $hex-width / 9;
+  }
+  &.border-top{
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    margin-top: -($hex-width * 2 / 5);
+    margin-left: -($hex-width / 10);
+  }
+  &.border-up-left{
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+    margin-top: -($hex-width / 5);
+    margin-left: -($hex-width - ($hex-width / 10));
+    display: none;
+  }
+  &.border-up-right{
+    -webkit-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    margin-top: -($hex-width / 5);
+    margin-left: $hex-width / 5;
   }
 }
