@@ -40,7 +40,6 @@
     bottom: (-1 * $height / 4);
   }
 }
-
 @mixin robber ($diameter) {
   
   background-color: #282828;
@@ -78,7 +77,6 @@
   }
 }
 @mixin intersect ($hex-width, $hex-height) {
-  
   position: absolute;
   width: $hex-height / 10;
   height: $hex-height / 10;
